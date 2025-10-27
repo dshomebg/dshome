@@ -23,6 +23,26 @@ export default function Sidebar() {
       href: '/admin/categories',
     },
     {
+      label: 'Brands',
+      icon: '🏭',
+      href: '/admin/brands',
+    },
+    {
+      label: 'Suppliers',
+      icon: '🚚',
+      href: '/admin/suppliers',
+    },
+    {
+      label: 'Attributes',
+      icon: '🎨',
+      href: '/admin/attributes',
+    },
+    {
+      label: 'Features',
+      icon: '⭐',
+      href: '/admin/features',
+    },
+    {
       label: 'Orders',
       icon: '🛒',
       href: '/admin/orders',
