@@ -81,5 +81,40 @@ export const categories = pgTable('categories', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
   slug: text('slug').notNull().unique(),
+  parentId: integer('parent_id').references(() => categories.id, { onDelete: 'cascade' }),
+  description: text('description'),
+  imageUrl: text('image_url'),
+  isActive: boolean('is_active').default(true),
+  metaTitle: text('meta_title'),
+  metaDescription: text('meta_description'),
   createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
+});
+
+// Brands table (Марки)
+export const brands = pgTable('brands', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),
+  slug: text('slug').notNull().unique(),
+  logoUrl: text('logo_url'),
+  description: text('description'),
+  metaTitle: text('meta_title'),
+  metaDescription: text('meta_description'),
+  isActive: boolean('is_active').default(true),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
+});
+
+// Suppliers table (Доставчици)
+export const suppliers = pgTable('suppliers', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),
+  contactPerson: text('contact_person'),
+  email: text('email'),
+  phone: text('phone'),
+  address: text('address'),
+  notes: text('notes'),
+  isActive: boolean('is_active').default(true),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
 });
